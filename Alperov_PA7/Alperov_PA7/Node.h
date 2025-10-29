@@ -13,11 +13,11 @@ class Node
 {
 private:
 
-	Node<T> *pNext;
-	T data;	
+	Node<T>* pNext;
+	T data;
 
 public:
-	
+
 	//Constructors Copy Constructors and Destructors
 	Node();
 	Node(const T& newData);
@@ -39,36 +39,43 @@ public:
 template<typename T>
 inline Node<T>::Node()
 {
+	pNext = nullptr;
+	data = NULL;
 }
 
 template<typename T>
 inline Node<T>::Node(const T& newData)
 {
+	pNext = nullptr;
+	data; //Idk what to initalize data to.
 }
 
 template<typename T>
 inline Node<T>::~Node()
 {
+	cout << "Destructor Activated" << endl;
 }
 
 template<typename T>
 inline T& Node<T>::getData()
 {
-	// TODO: insert return statement here
+	return this->data;
 }
 
 template<typename T>
 inline Node<T>* Node<T>::getNext() const
 {
-	return nullptr;
+	return this->pNext;
 }
 
 template<typename T>
 inline void Node<T>::setData(const T& newData)
 {
+	this->data = newData;
 }
 
 template<typename T>
 inline void Node<T>::setNext(Node<T>* newNext)
 {
+	this->pNext;
 }

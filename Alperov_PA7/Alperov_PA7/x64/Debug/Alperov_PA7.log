@@ -1,4 +1,26 @@
-﻿  Data.cpp
-  main.cpp
-  Generating Code...
-  Alperov_PA7.vcxproj -> C:\Users\malpe\OneDrive\Desktop\FunCodingLol\Alperov_PA7\x64\Debug\Alperov_PA7.exe
+﻿  Menu.cpp
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(46,21): error C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(53,3): error C2360: initialization of 'now' is skipped by 'case' label
+      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(46,15):
+      see declaration of 'now'
+  
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(53,3): error C2360: initialization of 't' is skipped by 'case' label
+      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(45,11):
+      see declaration of 't'
+  
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(55,3): error C2360: initialization of 'now' is skipped by 'case' label
+      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(46,15):
+      see declaration of 'now'
+  
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(55,3): error C2360: initialization of 't' is skipped by 'case' label
+      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(45,11):
+      see declaration of 't'
+  
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(58,3): error C2361: initialization of 'now' is skipped by 'default' label
+      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(46,15):
+      see declaration of 'now'
+  
+C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(58,3): error C2361: initialization of 't' is skipped by 'default' label
+      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(45,11):
+      see declaration of 't'
+  
