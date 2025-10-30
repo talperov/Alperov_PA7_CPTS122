@@ -28,7 +28,7 @@ Data::Data(int number, int id, const string& name, const string& email, const st
 
 Data::~Data()
 {
-	cout << "Destructor Activated" << endl; // Remember to delete this
+	//cout << "Destructor Activated" << endl; // Remember to delete this
 }
 
 int Data::getNumber() const
