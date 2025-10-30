@@ -40,20 +40,20 @@ template<typename T>
 inline Node<T>::Node()
 {
 	pNext = nullptr;
-	data = NULL;
+	data = T();
 }
 
 template<typename T>
 inline Node<T>::Node(const T& newData)
 {
 	pNext = nullptr;
-	data; //Idk what to initalize data to.
+	data = newData; //Idk what to initalize data to.
 }
 
 template<typename T>
 inline Node<T>::~Node()
 {
-	cout << "Destructor Activated" << endl;
+	//cout << "Destructor Activated" << endl;
 }
 
 template<typename T>
@@ -77,5 +77,5 @@ inline void Node<T>::setData(const T& newData)
 template<typename T>
 inline void Node<T>::setNext(Node<T>* newNext)
 {
-	this->pNext;
+	this->pNext = newNext;
 }
