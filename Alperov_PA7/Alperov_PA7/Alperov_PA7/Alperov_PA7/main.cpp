@@ -14,10 +14,12 @@ attendance tracker.
 */
 #include "Menu.h"
 
-int main(void)
+
+int main()
 {
+    List<Data> masterList;
+    Menu menu(masterList);  
 
-
-
-	return 0;
+    menu.App();
+    return 0;
 }

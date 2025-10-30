@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "Node.h"
 #include "Data.h"
@@ -16,11 +17,12 @@ class Menu
 private:
 
 	List<Data>& masterList;
+	string GatherTime(); // Helper
 
 public:
 
 //Constructor Copy Constructor and Destructor
-// Menu(); //Not needed
+//Menu(); //Not Needed
 Menu(List<Data>& list);
 ~Menu();
 
@@ -39,4 +41,5 @@ void LoadCourseList(); //Case 2
 void StoreCourseList(); //Case 3
 void MarkAbsences(); //Case 4
 void GenerateReport(); //Case 5
+				
 };

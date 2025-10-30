@@ -50,7 +50,7 @@ template<typename T>
 inline List<T>::~List()
 {
 	destroyList();
-	cout << "Destructor Activated" << endl; //Remember to delete this
+	//cout << "Destructor Activated" << endl; //Remember to delete this
 }
 
 template<typename T>
@@ -69,6 +69,7 @@ template<typename T>
 inline void List<T>::insertAtFront(const T& newData)
 {
 	Node<T>* pNew = new Node<T>(newData);
+
 	pNew->setNext(pHead);
 	pHead = pNew;
 }
@@ -82,10 +83,6 @@ inline bool List<T>::isEmpty()
 template<typename T>
 inline bool List<T>::destroyList()
 {
-	if (isEmpty())
-	{
-		return false;
-	}
 		while (pHead)
 	{
 		Node<T>* pTemp = pHead;
@@ -123,7 +120,6 @@ inline void List<T>::markAbsences(const string& date)
 		else if (dec == 'N' || dec == 'n')
 		{
 			cout << "Canceling. . ." << endl;
-			return;
 		}
 		pCur = pCur->getNext();
 	}

@@ -1,7 +1,2 @@
 ﻿  Menu.cpp
-C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(89,39): error C2086: 'std::string units': redefinition
-      C:\Users\malpe\OneDrive\Desktop\CPTS122\Alperov_PA7\Alperov_PA7\Menu.cpp(89,23):
-      see declaration of 'units'
-  
-  main.cpp
-  Generating Code...
+  Alperov_PA7.vcxproj -> C:\Users\mikha\Source\Repos\Alperov_PA7_CPTS122\Alperov_PA7\Alperov_PA7\Alperov_PA7\x64\Debug\Alperov_PA7.exe

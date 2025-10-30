@@ -128,7 +128,7 @@
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\classList.csv" />
+    <None Include="classList.csv" />
     <None Include="master.csv" />
   </ItemGroup>
   <ItemGroup>
