@@ -27,12 +27,10 @@ public:
 
 
 	//getters
-
-		//not needed
+	Node<T>* getHead() const;
 
 	//setters
-		//not needed
-
+	void setHead(Node<T>* newHead);
 	//members
 	void insertAtFront(const T& newData);
 	bool isEmpty();
@@ -53,6 +51,18 @@ inline List<T>::~List()
 {
 	destroyList();
 	cout << "Destructor Activated" << endl; //Remember to delete this
+}
+
+template<typename T>
+inline Node<T>* List<T>::getHead() const
+{
+	return this->pHead;
+}
+
+template<typename T>
+inline void List<T>::setHead(Node<T>* newHead)
+{
+	pHead = newHead;
 }
 
 template<typename T>

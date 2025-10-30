@@ -37,6 +37,7 @@ public:
 	string getName() const;
 	string getEmail() const;
 	string getUnits() const;
+	string getProgram() const;
 	string getLevel() const ;
 	int getAbsences_Num() const;
 	stack<string> getAbsencesDate() const;
@@ -48,6 +49,7 @@ public:
 	void setName(const string& name);
 	void setEmail(const string& email); 
 	void setUnits(const string& units);
+	void setProgram(const string& program);
 	void setLevel(const string& level);
 	void setAbsences_Num(int num);
 

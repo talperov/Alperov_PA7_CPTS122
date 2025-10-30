@@ -12,11 +12,10 @@ criteria.
 Requirment Four:The application must support a user interface to the
 attendance tracker.
 */
+#include "Menu.h"
 
 int main(void)
 {
-
-
 
 
 

@@ -56,6 +56,11 @@ string Data::getUnits() const
 	return this->Units;
 }
 
+string Data::getProgram() const
+{
+	return this->Program;
+}
+
 string Data::getLevel() const
 {
 	return this->Level;
@@ -95,6 +100,11 @@ void Data::setEmail(const string& email)
 void Data::setUnits(const string& units)
 {
 	this->Units = units;
+}
+
+void Data::setProgram(const string& program)
+{
+	this->Program = program;
 }
 
 void Data::setLevel(const string& level)

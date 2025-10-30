@@ -3,6 +3,12 @@
 #include "Node.h"
 #include "Data.h"
 #include "List.h"
+#include <fstream>
+#include <sstream>
+
+using std::ifstream;
+using std::stringstream;
+
 
 class Menu
 {
@@ -27,4 +33,9 @@ Menu(List<Data>& list);
 //members
 void DisplayScreen();
 void App();
+void ImportCourseList(); //Case 1
+void LoadCourseList(); //Case 2
+void StoreCourseList(); //Case 3
+void MarkAbsences(); //Case 4
+void GenerateReport(); //Case 5
 };
