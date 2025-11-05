@@ -83,13 +83,13 @@ inline bool List<T>::isEmpty()
 template<typename T>
 inline bool List<T>::destroyList()
 {
-		while (pHead)
+	while (pHead)
 	{
 		Node<T>* pTemp = pHead;
 		pHead = pHead->getNext();
 		delete pTemp;
 	}
-		return true;
+	return true;
 }
 
 template<typename T>

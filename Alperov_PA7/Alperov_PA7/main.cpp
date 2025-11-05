@@ -18,7 +18,7 @@ attendance tracker.
 int main()
 {
     List<Data> masterList;
-    Menu menu(masterList);  
+    Menu menu(masterList);
 
     menu.App();
     return 0;

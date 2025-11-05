@@ -11,7 +11,7 @@ Menu::Menu(List<Data>& list) : masterList(list)
 
 Menu::~Menu()
 {
-	cout << "Destructor Activated" << endl;
+	//cout << "Destructor Activated" << endl; //Remember to delete this
 }
 
 void Menu::DisplayScreen()
@@ -24,7 +24,7 @@ void Menu::DisplayScreen()
 	cout << "5. Generate Report" << endl;
 	cout << "6. Exit" << endl;
 	cout << "Select A Choice From Above: " << endl;
-		
+
 }
 
 void Menu::App()
@@ -51,7 +51,7 @@ void Menu::App()
 			break;
 		case 4:
 			MarkAbsences();
-			
+
 			break;
 		case 5:
 			GenerateReport();
@@ -105,15 +105,16 @@ void Menu::ImportCourseList() // CASE 1
 
 		getline(input, token, ',');
 		if (token.empty())
-		{ 
-			continue; 
+		{
+			continue;
 		}
 		number = stoi(token);
 
 		getline(input, token, ',');
-		if (token.empty()) 
+		if (token.empty())
 		{
 			continue;
+			
 		}
 		id = stoi(token);
 
@@ -147,16 +148,26 @@ void Menu::LoadCourseList() // CASE 2
 	string line;
 	int count = 0;
 
-	if (!infile.is_open())
-	{
-		cout << "Error Opening master.csv\n\n";
-		return;
-	}
+		if (!infile.is_open())
+		{
+			cout << "Error Opening master.csv" << endl << endl;
+			return;
+		}
 
 	getline(infile, line); // skip header
 
 	while (getline(infile, line))
 	{
+		if (line.empty())
+		{
+			continue;
+		}
+
+		if (!isdigit(line[0]))
+		{
+			continue;
+		}
+
 		stringstream input(line);
 		string number, id, name, email, units, program, level, absence;
 
@@ -171,24 +182,52 @@ void Menu::LoadCourseList() // CASE 2
 
 		Data tempStudent;
 
-		tempStudent.setNumber(stoi(number));
-		tempStudent.setID(stoi(id));
+		// Use the Checking helper function
+		if (Checking(number))
+		{
+			tempStudent.setNumber(stoi(number));
+		}
+		else
+		{
+			tempStudent.setNumber(0);
+		}
+
+		if (Checking(id))
+		{
+			tempStudent.setID(stoi(id));
+		}
+		else
+		{
+			tempStudent.setID(0);
+		}
+
+		if (Checking(absence))
+		{
+			tempStudent.setAbsences_Num(stoi(absence));
+		}
+		else
+		{
+			tempStudent.setAbsences_Num(0);
+		}
+
 		tempStudent.setName(name);
 		tempStudent.setEmail(email);
 		tempStudent.setUnits(units);
 		tempStudent.setProgram(program);
 		tempStudent.setLevel(level);
-		tempStudent.setAbsences_Num(stoi(absence));
 
 		masterList.insertAtFront(tempStudent);
 		count++;
 	}
 
 	infile.close();
-	cout << endl; cout << "Students loaded #" << count << endl;
+	cout << endl << "Students loaded #" << count << endl;
 	cout << "Master List Loaded into master.csv" << endl << endl;
 	system("pause");
+
 }
+
+
 
 
 void Menu::StoreCourseList() // CASE 3
@@ -394,4 +433,23 @@ string Menu::GatherTime() // Helper Function for Case 4
 		<< now->tm_mday;
 
 	return output.str();
+}
+
+bool Menu::Checking(const string& str)
+{
+	if (str.empty())
+	{
+		return false;
+	}
+
+	for (int i = 0; i < str.length(); i++)
+	{
+		char real = str[i];
+
+		if (!isdigit(real))
+		{
+			return false;
+		}
+	}
+	return true;
 }

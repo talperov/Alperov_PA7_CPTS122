@@ -18,28 +18,30 @@ private:
 
 	List<Data>& masterList;
 	string GatherTime(); // Helper
+	bool Checking(const string& str); // Helper
+
 
 public:
 
-//Constructor Copy Constructor and Destructor
-//Menu(); //Not Needed
-Menu(List<Data>& list);
-~Menu();
+	//Constructor Copy Constructor and Destructor
+	//Menu(); //Not Needed
+	Menu(List<Data>& list);
+	~Menu();
 
 
-//getters
-	//none needed
+	//getters
+		//none needed
 
-//setters
-	//none needed
+	//setters
+		//none needed
 
-//members
-void DisplayScreen();
-void App();
-void ImportCourseList(); //Case 1
-void LoadCourseList(); //Case 2
-void StoreCourseList(); //Case 3
-void MarkAbsences(); //Case 4
-void GenerateReport(); //Case 5
-				
+	//members
+	void DisplayScreen();
+	void App();
+	void ImportCourseList(); //Case 1
+	void LoadCourseList(); //Case 2
+	void StoreCourseList(); //Case 3
+	void MarkAbsences(); //Case 4
+	void GenerateReport(); //Case 5
+
 };

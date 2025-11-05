@@ -11,7 +11,7 @@ using std::endl;
 
 class Data
 {
-private: 
+private:
 	int Number;
 	int ID;
 	string Name;
@@ -22,7 +22,7 @@ private:
 	int Absences_Num;
 	stack<string> Absences_Date;
 
-	
+
 
 
 public:
@@ -38,7 +38,7 @@ public:
 	string getEmail() const;
 	string getUnits() const;
 	string getProgram() const;
-	string getLevel() const ;
+	string getLevel() const;
 	int getAbsences_Num() const;
 	stack<string> getAbsencesDate() const;
 
@@ -47,7 +47,7 @@ public:
 	void setNumber(int number);
 	void setID(int id);
 	void setName(const string& name);
-	void setEmail(const string& email); 
+	void setEmail(const string& email);
 	void setUnits(const string& units);
 	void setProgram(const string& program);
 	void setLevel(const string& level);
@@ -56,8 +56,7 @@ public:
 	//members
 	void pushAbsences_Date(const string& date);
 	string peekAbsences_Date()const;
-	
+
 
 
 };
-
