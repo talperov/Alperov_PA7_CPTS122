@@ -56,6 +56,7 @@ public:
 	//members
 	void pushAbsences_Date(const string& date);
 	string peekAbsences_Date()const;
+	void popAbsences_Date();
 
 
 
