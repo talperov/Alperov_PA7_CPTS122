@@ -42,6 +42,8 @@ public:
 	void LoadCourseList(); //Case 2
 	void StoreCourseList(); //Case 3
 	void MarkAbsences(); //Case 4
-	void GenerateReport(); //Case 5
+	void EditAbsences(); //Case 5
+	void GenerateReport(); //Case 6
+
 
 };
