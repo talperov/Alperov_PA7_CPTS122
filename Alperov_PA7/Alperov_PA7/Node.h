@@ -47,7 +47,7 @@ template<typename T>
 inline Node<T>::Node(const T& newData)
 {
 	pNext = nullptr;
-	data = newData; 
+	data = newData;
 }
 
 template<typename T>
@@ -78,4 +78,4 @@ template<typename T>
 inline void Node<T>::setNext(Node<T>* newNext)
 {
 	this->pNext = newNext;
-}	
+}
