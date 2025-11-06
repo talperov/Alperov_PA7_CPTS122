@@ -21,8 +21,9 @@ void Menu::DisplayScreen()
 	cout << "2.Load the Master List" << endl;
 	cout << "3.Store the Master List" << endl;
 	cout << "4. Mark the Absences" << endl;
-	cout << "5. Generate Report" << endl;
-	cout << "6. Exit" << endl;
+	cout << "5. Edit Absences" << endl;
+	cout << "6. Generate Report" << endl;
+	cout << "7. Exit Program" << endl;
 	cout << "Select A Choice From Above: " << endl;
 
 }
@@ -30,7 +31,7 @@ void Menu::DisplayScreen()
 void Menu::App()
 {
 	int choice = 0;
-	while (choice != 6)
+	while (choice != 7)
 	{
 		DisplayScreen();
 		cin >> choice;
@@ -54,13 +55,18 @@ void Menu::App()
 
 			break;
 		case 5:
-			GenerateReport();
+			EditAbsences();
 
 			break;
 		case 6:
+			GenerateReport();
+
+			break;
+		case 7:
 			cout << "Exiting. . ." << endl;
 
 			break;
+
 
 		default:
 			cout << "Select Again" << endl;
@@ -70,6 +76,8 @@ void Menu::App()
 
 void Menu::ImportCourseList() // CASE 1
 {
+	masterList.destroyList();
+
 	ifstream infile;
 	string line;
 	stringstream input;
@@ -114,7 +122,7 @@ void Menu::ImportCourseList() // CASE 1
 		if (token.empty())
 		{
 			continue;
-			
+
 		}
 		id = stoi(token);
 
@@ -144,15 +152,18 @@ import++;
 
 void Menu::LoadCourseList() // CASE 2
 {
+
+	masterList.destroyList();
+
 	ifstream infile("master.csv");
 	string line;
 	int count = 0;
 
-		if (!infile.is_open())
-		{
-			cout << "Error Opening master.csv" << endl << endl;
-			return;
-		}
+	if (!infile.is_open())
+	{
+		cout << "Error Opening master.csv" << endl << endl;
+		return;
+	}
 
 	getline(infile, line); // skip header
 
@@ -182,7 +193,6 @@ void Menu::LoadCourseList() // CASE 2
 
 		Data tempStudent;
 
-		// Use the Checking helper function
 		if (Checking(number))
 		{
 			tempStudent.setNumber(stoi(number));
@@ -221,7 +231,7 @@ void Menu::LoadCourseList() // CASE 2
 	}
 
 	infile.close();
-	cout << endl << "Students loaded #" << count << endl;
+	cout << endl << "Amount of Students Loaded is " << count << endl;
 	cout << "Master List Loaded into master.csv" << endl << endl;
 	system("pause");
 
@@ -319,9 +329,85 @@ void Menu::MarkAbsences() // CASE 4
 	system("pause");
 }
 
+void Menu::EditAbsences() // CASE 5
+{
+	Node<Data>* pCur = masterList.getHead();
+	int choice = 0;
+	string input;
+
+	cout << "What would you want to Edit. . ." << endl;
+	cout << "1. Search with ID" << endl;
+	cout << "2. Search with Name" << endl;
+	cin >> choice;
+	cin.ignore();
+
+	cout << "Student List: " << endl;
+
+	while (pCur)
+	{
+		Data& find = pCur->getData();
+		cout << "ID: " << find.getID() << ", Name: " << find.getName() << endl;
+		pCur = pCur->getNext();
+	}
+
+	if (choice == 1)
+	{
+		cout << "Enter the ID: ";
+		cin >> input;
+		cin.ignore();
+	}
+	else
+	{
+		cout << "Enter the Name exactly as shown in the Student List with Quotes: " << endl;
+		getline(cin, input);
+	}
+
+	pCur = masterList.getHead();
+	
+	bool found = false;
+	
+	while (pCur)
+	{
+		Data& student = pCur->getData();
+
+		string name = student.getName();
+
+		if (!name.empty() && name[0] == '"')
+		{
+			name = name.substr(1); // takes away " when entering name
+		}
+
+		if ((choice == 1 && Checking(input) && student.getID() == stoi(input)) ||(choice == 2 && name == input))
+		{
+			found = true;
+
+			if (student.getAbsences_Num() == 0)
+			{
+				cout << student.getName() << " has no Absences." << endl;
+			}
+			else
+			{
+				student.popAbsences_Date();
+				student.setAbsences_Num(student.getAbsences_Num() - 1);
+
+				cout << "Most recent absence removed for " << student.getName() << "." << endl;
+			}
+			break;
+
+		}
+		pCur = pCur->getNext();
+
+	}
+	if (!found)
+	{
+		cout << "N/A" << endl;
+	}
+	system("pause");
+}
 
 
-void Menu::GenerateReport() // CASE 5
+
+void Menu::GenerateReport() // CASE 6
 {
 	Node<Data>* pCur;
 	Data student;
@@ -435,7 +521,7 @@ string Menu::GatherTime() // Helper Function for Case 4
 	return output.str();
 }
 
-bool Menu::Checking(const string& str)
+bool Menu::Checking(const string& str) // Helper Function
 {
 	if (str.empty())
 	{
